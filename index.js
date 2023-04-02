@@ -1,11 +1,10 @@
 const http = require("http"),
   path = require("path"),
-  methods = require("methods"),
   express = require("express"),
   bodyParser = require("body-parser"),
   cors = require("cors"),
   db = require("./model");
-
+dotenv = require("dotenv").config();
 let app = express();
 
 app.use(cors());
@@ -41,6 +40,6 @@ app.use(function (err, req, res, next) {
   });
 });
 
-let server = app.listen(process.env.PORT || 3000, function () {
+let server = app.listen(process.env.PORT || 3001, function () {
   console.log("Listening on port " + server.address().port);
 });

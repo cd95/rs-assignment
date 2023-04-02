@@ -22,7 +22,9 @@ exports.addTemplate = async (data) => {
 };
 exports.findTemplates = async () => {
   try {
-    let templates = await Template.findAndCountAll({ plain: true });
+    let templates = await Template.findAndCountAll({
+      attributes: ["type"],
+    });
     return { count: templates.count, templates: templates.rows };
   } catch (error) {
     console.log(error);
